@@ -1,20 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "GPT Translation Extension",
+  "name": "AI Writing Coach",
   "version": "1.0",
-  "description": "Translate the current Chrome tab using GPT.",
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "storage"
-  ],
+  "description": "Enhance your writing in real-time using GPT.",
+  "permissions": ["activeTab", "scripting", "storage"],
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["styles.css"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html"
-  },
-  "host_permissions": [
-    "<all_urls>"
-  ]
+  }
 }
